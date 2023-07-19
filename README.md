@@ -4,15 +4,8 @@
    - [ ] AdBlock
    - [ ] IOTO Bookmarks
    - [ ] Personal Bookmarks
-   - [ ] NixOS Discourse Microphone Thread
 1. Configure Polybar:
-   - [ ] Battery with indicators to plug / unplug.
-   - [x] Workspace icons should have a border and background color related to their status.
    - [ ] Network (Ethernet / Wifi)
-   - [ ] Time
-   - [ ] Audio
-   -
-1. Update polybar home manager config example, i3GapsSupport is no longer an option. Possibly other oudated docs.
 
 # Dreams
 
