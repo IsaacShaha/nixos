@@ -224,12 +224,13 @@ in
               font-1 = "Noto Color Emoji:scale=7;3";
               font-2 = "Unifont:pixelsize=10;3";
               font-3 = "Unifont:pixelsize=15;3";
+              font-4 = "Tex Gyre Adventor:pixelsize=10;-3";
               height = "35px";
               line-size = 5;
               module-margin = "1";
               modules-left = "i3";
               modules-center = "volume";
-              modules-right = "battery datetime";
+              modules-right = "wifi battery datetime";
             };
             "module/battery" = rec {
               cat-bin = "${pkgs.coreutils}/bin/cat";
@@ -254,7 +255,7 @@ in
                 else
                     arrow="↑"
                 fi
-                echo "🔋%{F$color}Battery: $percent%$arrow%{F-}"
+                echo "🔋%{F$color}$percent%$arrow%{F-}"
               '';
               interval = 1;
               type = "custom/script";
@@ -274,7 +275,7 @@ in
                         *) ordinal="th" ;;
                     esac
                 fi
-                date=$(${date-bin} +"%A, %B $day_of_month$ordinal, %Y")
+                date=$(${date-bin} +"%A, %B $day_of_month%{T5}$ordinal%{T-}, %Y")
                 hour=$((10#$(${date-bin} +"%I")))
                 time=$(${date-bin} +"$hour:%M:%S%p")
                 echo "📅$date 🕛$time"
@@ -317,9 +318,17 @@ in
               label-muted = "%{A1::}🔇%{A}";
               ramp-volume-0 = "🔈";
               ramp-volume-1 = "🔉";
-              ramp-volume-2 = "🔊";
+              ramp-volume-2 = "🔉";
+              ramp-volume-3 = "🔊";
               type = "internal/pulseaudio";
               use-ui-max = false;
+            };
+            "module/wifi" = {
+              interface = "wlp2s0";
+              interface-type = "wireless";
+              label-connected = "🛜%signal%%";
+              label-connected-foreground = "\${colors.green}";
+              type = "internal/network";
             };
           };
         };
