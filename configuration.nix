@@ -73,6 +73,7 @@ in
           enable = true;
           nix-direnv.enable = true;
         };
+        gh.enable = true;
         git = {
           enable = true;
           extraConfig = {
@@ -81,59 +82,6 @@ in
           };
           userEmail = "isaac.shaha64@gmail.com";
           userName = "Isaac Shaha";
-        };
-        i3status = {
-          enable = true;
-          enableDefault = false;
-          general = {
-            colors = true;
-            interval = 1;
-          };
-          modules = {
-            "battery all" = {
-              enable = true;
-              position = 4;
-              settings = {
-                format = "%status %percentage ⏳%remaining";
-                integer_battery_capacity = true;
-                low_threshold = 20;
-                status_bat = "🔋";
-                status_chr = "🔌";
-                threshold_type = "percentage";
-              };
-            };
-            "ethernet _first_" = {
-              enable = true;
-              position = 3;
-              settings = {
-                format_down = "";
-                format_up = "🌐Ethernet: %speed";
-              };
-            };
-            "tztime local" = {
-              enable = true;
-              position = 1;
-              settings = {
-                format = "📅%A, %B %e, %Y ⌚%l:%M:%S %p";
-              };
-            };
-            "volume master" = {
-              enable = true;
-              position = 5;
-              settings = {
-                format = "🔊%volume";
-                format_muted = "🔇%volume";
-              };
-            };
-            "wireless _first_" = {
-              enable = true;
-              position = 2;
-              settings = {
-                format_down = "";
-                format_up = "🌐%essid: %quality";
-              };
-            };
-          };
         };
         urxvt = {
           enable = true;
