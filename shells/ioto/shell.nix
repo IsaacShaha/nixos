@@ -13,7 +13,11 @@ let
         --set PYTHONHOME "${python3}"
     '';
   };
-  python = pkgs.python311.withPackages (ps: [ ps.boto3 ]);
+  python = pkgs.python311.withPackages (ps: with ps; [
+    boto3
+    pygithub
+    requests
+  ]);
 in
 pkgs.mkShell {
   nativeBuildInputs = with pkgs; [
