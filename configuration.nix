@@ -132,15 +132,18 @@ in
             }
           ];
           userSettings = {
+            "[python]" = {
+              "editor.defaultFormatter" = "ms-python.black-formatter";
+            };
+            "black-formatter.args" = [
+              "--experimental-string-processing"
+            ];
             "editor.codeActionsOnSave" = {
               "source.organizeImports" = true;
             };
             "editor.formatOnSave" = true;
             "editor.inlineSuggest.enabled" = true;
             "update.mode" = "none";
-            "[python]" = {
-              "editor.defaultFormatter" = "ms-python.black-formatter";
-            };
           };
         };
         watson.enable = true;
