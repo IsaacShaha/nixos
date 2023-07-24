@@ -15,7 +15,9 @@ let
   };
   python = pkgs.python311.withPackages (ps: with ps; [
     boto3
+    pandas
     pygithub
+    pyyaml
     requests
   ]);
 in
