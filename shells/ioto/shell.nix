@@ -4,6 +4,7 @@ let
   nixpkgsDirectory = reposDirectory + "/nixpkgs";
   nixosDirectory = reposDirectory + "/nixos";
   iotoDirectory = nixosDirectory + "/shells/ioto";
+  secrets = import "${nixosDirectory}/secrets.nix";
   pkgs = import nixpkgsDirectory { };
   awscli2-wrapped = with pkgs; stdenv.mkDerivation {
     inherit (awscli2) pname version meta;
@@ -28,4 +29,5 @@ pkgs.mkShell {
     projectlibre
     python
   ];
+  IOTO_WORKFLOW_APP_PRIVATE_KEY = secrets.IOTO_WORKFLOW_APP_PRIVATE_KEY;
 }

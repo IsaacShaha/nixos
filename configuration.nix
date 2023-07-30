@@ -30,6 +30,7 @@ in
     # webcam tweaking
     v4l_utils
     wget
+    xorg.xkill
   ];
   hardware = {
     bluetooth.enable = true;
