@@ -131,6 +131,12 @@ in
               sha256 = "sha256-qCIT3B1ggaEh3bFup+YZQ3vDSONbtGvXmOi9T3RkbOc=";
               version = "latest";
             }
+            {
+              name = "vscode-thunder-client";
+              publisher = "rangav";
+              sha256 = "sha256-L8gNBMn/JlmOFihqrYW9le7lTOuarcakYM8lXax9L4k=";
+              version = "latest";
+            }
           ];
           userSettings = {
             "[python]" = {
