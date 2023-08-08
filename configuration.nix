@@ -221,7 +221,8 @@ in
             "module/datetime" = rec {
               date-bin = "${pkgs.coreutils}/bin/date";
               exec = pkgs.writeShellScript "polybar-datetime.sh" ''
-                day_of_month=$(${date-bin} +%d)
+                day_of_month_with_zero=$(${date-bin} +%d)
+                day_of_month=''${day_of_month_with_zero#0}
                 # Get Ordinal Day of Month, taking into account 11th, 12th, 13th
                 if [[ $((day_of_month / 10)) == 1 ]]; then
                     ordinal="th"
