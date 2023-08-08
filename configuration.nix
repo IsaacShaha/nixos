@@ -373,6 +373,7 @@ in
       enable = true;
       extensions = [
         "chlffgpmiacpedhhbkiomidkjlcfhogd"
+        "cfhdojbkjhnklbpkdaibdccddilifddb"
       ];
     };
     light.enable = true;
