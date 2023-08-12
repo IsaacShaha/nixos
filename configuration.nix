@@ -65,6 +65,7 @@ in
             DIRENV_LOG_FORMAT = null;
           };
           shellAliases = {
+            connect-headphones = "bluetoothctl connect 22:70:19:FC:C4:4E";
             dual-monitor = "xrandr --output HDMI-1 --right-of eDP-1 --auto";
             rebuild = "sudo nixos-rebuild switch";
             single-monitor = "xrandr --output HDMI-1 --off";
