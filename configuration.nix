@@ -1,9 +1,14 @@
 { config, lib, pkgs, ... }:
 let
+  dockerOverlay = self: super: {
+    docker = unstable.docker;
+  };
   i3-modifier = "Mod4";
-  secrets = (import ./secrets.nix);
+  secrets = import ./secrets.nix;
+  unstable = import <nixos-unstable> { };
 in
 {
+  # Stable
   imports = [
     ./hardware-configuration.nix
     <home-manager/nixos>
@@ -65,6 +70,7 @@ in
             DIRENV_LOG_FORMAT = null;
           };
           shellAliases = {
+            connect-bluetooth-wifi = "bluetoothctl connect 8C:DE:E6:C6:D8:4A && nmcli device connect 8C:DE:E6:C6:D8:4A";
             connect-headphones = "bluetoothctl connect 22:70:19:FC:C4:4E";
             dual-monitor = "xrandr --output HDMI-1 --right-of eDP-1 --auto";
             rebuild = "sudo nixos-rebuild switch";
@@ -117,25 +123,25 @@ in
             {
               name = "black-formatter";
               publisher = "ms-python";
-              sha256 = "sha256-JhOzRZcXb+kJVX3gzLgZFLDB2zRahPkARrjVvteFtUw=";
+              sha256 = "sha256-YBcyyE9Z2eL914J8I97WQW8a8A4Ue6C0pCUjWRRPcr8=";
               version = "latest";
             }
             {
               name = "isort";
               publisher = "ms-python";
-              sha256 = "sha256-ev+gSQP+Q1AEw+r1Uahi1TI+docalcC1iWO29N1L5VE==";
+              sha256 = "sha256-Ga2gA7dOKzp8FTpp7dS1D8R5g2ZAJU55VaKoijOqsnY=";
               version = "latest";
             }
             {
               name = "remote-containers";
               publisher = "ms-vscode-remote";
-              sha256 = "sha256-qCIT3B1ggaEh3bFup+YZQ3vDSONbtGvXmOi9T3RkbOc=";
+              sha256 = "sha256-srSRD/wgDbQo9P1uJk8YtcXPZO62keG5kRnp1TmHqOc=";
               version = "latest";
             }
             {
               name = "vscode-thunder-client";
               publisher = "rangav";
-              sha256 = "sha256-L8gNBMn/JlmOFihqrYW9le7lTOuarcakYM8lXax9L4k=";
+              sha256 = "sha256-eEg8UqGQ7AfR2ocBUAEKQH5E4pHBgfqkzWIVLNrMaRI=";
               version = "latest";
             }
           ];
@@ -370,6 +376,7 @@ in
     settings.sandbox = true;
   };
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.overlays = [ dockerOverlay ];
   programs = {
     chromium = {
       enable = true;
@@ -423,4 +430,3 @@ in
   };
   virtualisation.docker.enable = true;
 }
-
