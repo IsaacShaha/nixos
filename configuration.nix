@@ -394,8 +394,17 @@ in
   };
   security.polkit.enable = true;
   services = {
+    avahi = {
+      enable = true;
+      nssmdns = true;
+      openFirewall = true;
+    };
     blueman.enable = true;
     gnome.gnome-keyring.enable = true;
+    printing = {
+      drivers = [ pkgs.brlaser ];
+      enable = true;
+    };
     udev.extraRules = ''
       SUBSYSTEM == "video4linux", KERNEL=="video0", RUN+="${pkgs.v4l-utils}/bin/v4l2-ctl -d /dev/video0 --set-ctrl=brightness=150"
     '';
