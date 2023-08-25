@@ -368,6 +368,9 @@ in
     networkmanager.enable = true;
   };
   nix = {
+    extraOptions = ''
+      experimental-features = nix-command
+    '';
     # nixos/nixpkgs garbage collection.
     gc = {
       automatic = true;
@@ -376,8 +379,10 @@ in
     };
     settings.sandbox = false;
   };
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.overlays = [ dockerOverlay ];
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [ dockerOverlay ];
+  };
   programs = {
     chromium = {
       enable = true;
