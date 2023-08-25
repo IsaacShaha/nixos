@@ -368,12 +368,13 @@ in
     networkmanager.enable = true;
   };
   nix = {
+    # nixos/nixpkgs garbage collection.
     gc = {
       automatic = true;
       dates = "monthly";
       options = "-d";
     };
-    settings.sandbox = true;
+    settings.sandbox = false;
   };
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [ dockerOverlay ];
@@ -394,6 +395,7 @@ in
   };
   security.polkit.enable = true;
   services = {
+    automatic-timezoned.enable = true;
     avahi = {
       enable = true;
       nssmdns = true;
@@ -430,7 +432,6 @@ in
     };
   };
   system.stateVersion = "23.05";
-  time.timeZone = "America/Vancouver";
   users.users.isaac = {
     description = "Isaac Shaha";
     extraGroups = [ "docker" "networkmanager" "video" "wheel" ];
