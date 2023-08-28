@@ -114,8 +114,8 @@ in
             esbenp.prettier-vscode
             github.copilot
             grapecity.gc-excelviewer
-            haskell.haskell
             jnoortheen.nix-ide
+            justusadam.language-haskell
             ms-python.python
             ms-vscode-remote.remote-ssh
             ms-vsliveshare.vsliveshare
@@ -139,13 +139,23 @@ in
               version = "latest";
             }
             {
+              name = "stylish-haskell";
+              publisher = "vigoo";
+              sha256 = "sha256-GGRhaHhpeMgfC517C3kDUZwzdHbY8L/YePPVf6xie/4=";
+              version = "latest";
+            }
+            {
               name = "vscode-thunder-client";
               publisher = "rangav";
               sha256 = "sha256-eEg8UqGQ7AfR2ocBUAEKQH5E4pHBgfqkzWIVLNrMaRI=";
               version = "latest";
             }
           ];
+          mutableExtensionsDir = false;
           userSettings = {
+            "[haskell]" = {
+              "editor.defaultFormatter" = "vigoo.stylish-haskell";
+            };
             "[python]" = {
               "editor.defaultFormatter" = "ms-python.black-formatter";
             };

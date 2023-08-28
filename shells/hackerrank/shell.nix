@@ -1,11 +1,11 @@
 # A Haskell environment replacing that found @ https://www.hackerrank.com/environment?utm_medium=social&utm_source=blog.
-{ pkgs ? import <nixpkgs> { } }:
+{ basePkgs ? import <nixpkgs> { } }:
 let
   source = builtins.fetchTarball {
     url = "https://github.com/NixOS/nixpkgs/archive/1f212565d2fcfe2c880e739d4462731a6ec19654.tar.gz";
   };
   ghcPkgs = import source { };
-  hackerrankHaskell = ghcPkgs.haskell.packages.ghc863.ghcWithPackages (p: with p; [
+  ghc = ghcPkgs.haskell.packages.ghc863.ghcWithPackages (p: with p; [
     base-prelude
     logict
     pipes
@@ -43,6 +43,9 @@ let
     bifunctors
   ]);
 in
-ghcPkgs.mkShell {
-  buildInputs = [ hackerrankHaskell ];
+basePkgs.mkShell {
+  buildInputs = [
+    basePkgs.stylish-haskell
+    ghc
+  ];
 }
