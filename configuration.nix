@@ -377,7 +377,6 @@ in
       dates = "monthly";
       options = "-d";
     };
-    settings.sandbox = false;
   };
   nixpkgs = {
     config.allowUnfree = true;
