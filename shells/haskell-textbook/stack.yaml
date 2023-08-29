@@ -1,6 +1,0 @@
-resolver: lts-13.24
-
-nix:
-  enable: false
-
-system-ghc: true
