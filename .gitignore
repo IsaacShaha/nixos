@@ -1,2 +1,2 @@
 secrets.nix
-*/.stack-work
+*/.stack-work/*

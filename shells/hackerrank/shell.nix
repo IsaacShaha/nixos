@@ -41,6 +41,8 @@ let
     base-unicode-symbols
     basic-prelude
     bifunctors
+    # debugging
+    optparse-applicative
   ]);
 in
 basePkgs.mkShell {
