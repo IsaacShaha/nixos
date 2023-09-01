@@ -411,7 +411,6 @@ in
   };
   security.polkit.enable = true;
   services = {
-    automatic-timezoned.enable = true;
     avahi = {
       enable = true;
       nssmdns = true;
@@ -448,6 +447,7 @@ in
     };
   };
   system.stateVersion = "23.05";
+  time.timeZone = "America/Vancouver";
   users.users.isaac = {
     description = "Isaac Shaha";
     extraGroups = [ "docker" "networkmanager" "video" "wheel" ];
