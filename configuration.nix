@@ -41,7 +41,7 @@ in
     bluetooth.enable = true;
     bluetooth.settings = {
       General = {
-        ControllerMode = "bredr";
+        ControllerMode = "dual";
       };
     };
     pulseaudio.enable = true;
@@ -155,6 +155,8 @@ in
           userSettings = {
             "[haskell]" = {
               "editor.defaultFormatter" = "vigoo.stylish-haskell";
+              "editor.insertSpaces" = true;
+              "editor.tabSize" = 2;
             };
             "[python]" = {
               "editor.defaultFormatter" = "ms-python.black-formatter";
