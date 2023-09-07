@@ -417,6 +417,7 @@ in
       openFirewall = true;
     };
     blueman.enable = true;
+    deluge.enable = true;
     gnome.gnome-keyring.enable = true;
     printing = {
       drivers = [ pkgs.brlaser ];
