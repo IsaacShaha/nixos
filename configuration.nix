@@ -31,6 +31,7 @@ in
     pavucontrol
     shutter
     spotify
+    taskwarrior
     thunderbird
     # webcam tweaking
     v4l_utils
@@ -72,7 +73,8 @@ in
           shellAliases = {
             connect-bluetooth-wifi = "bluetoothctl connect 8C:DE:E6:C6:D8:4A && nmcli device connect 8C:DE:E6:C6:D8:4A";
             connect-headphones = "bluetoothctl connect 22:70:19:FC:C4:4E";
-            dual-monitor = "xrandr --output HDMI-1 --right-of eDP-1 --auto";
+            dual-monitor-left = "xrandr --output HDMI-1 --left-of eDP-1 --auto";
+            dual-monitor-right = "xrandr --output HDMI-1 --right-of eDP-1 --auto";
             rebuild = "sudo nixos-rebuild switch";
             single-monitor = "xrandr --output HDMI-1 --off";
           };
@@ -429,7 +431,7 @@ in
     xserver = {
       displayManager = {
         defaultSession = "none+i3";
-        sessionCommands = "xrandr --output HDMI-1 --right-of eDP-1 --auto";
+        sessionCommands = "xrandr --output HDMI-1 --left-of eDP-1 --auto";
       };
       dpi = 120;
       enable = true;
