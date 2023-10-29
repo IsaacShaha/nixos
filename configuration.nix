@@ -24,19 +24,24 @@ in
   environment.systemPackages = with pkgs; [
     authy
     chromium
+    ganttproject-bin
+    ghc
     gnumake
     lightlocker
     lxqt.lxqt-policykit
     nixpkgs-fmt
+    obsidian
     pavucontrol
     shutter
     spotify
     taskwarrior
     thunderbird
+    unzip
     # webcam tweaking
     v4l_utils
     wget
     xorg.xkill
+    zip
   ];
   hardware = {
     bluetooth.enable = true;
