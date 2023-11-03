@@ -30,12 +30,13 @@ in
     lightlocker
     lxqt.lxqt-policykit
     nixpkgs-fmt
-    obsidian
     pavucontrol
     shutter
     spotify
     taskwarrior
+    teams
     thunderbird
+    unityhub
     unzip
     # webcam tweaking
     v4l_utils
