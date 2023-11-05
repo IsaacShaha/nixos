@@ -158,6 +158,12 @@ in
               sha256 = "sha256-eEg8UqGQ7AfR2ocBUAEKQH5E4pHBgfqkzWIVLNrMaRI=";
               version = "latest";
             }
+            {
+              name = "octave";
+              publisher = "toasty-technologies";
+              sha256 = "sha256-tbqblaBX+wqgasfGLsFp49xYxXi5CF39YPYs0QyANt0=";
+              version = "latest";
+            }
           ];
           mutableExtensionsDir = false;
           userSettings = {
