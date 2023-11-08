@@ -43,6 +43,11 @@ in
     wget
     xorg.xkill
     zip
+
+    #x11docker
+    x11docker
+    xorg.libxcvt
+    catatonit
   ];
   hardware = {
     bluetooth.enable = true;
@@ -183,6 +188,10 @@ in
             };
             "editor.formatOnSave" = true;
             "editor.inlineSuggest.enabled" = true;
+            "editor.rulers" = [
+              80
+            ];
+            "explorer.confirmDelete" = false;
             "update.mode" = "none";
           };
         };
