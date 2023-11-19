@@ -4,7 +4,6 @@ let
     docker = unstable.docker;
   };
   i3-modifier = "Mod4";
-  secrets = import ./secrets.nix;
   unstable = import <nixos-unstable> { };
 in
 {
@@ -397,9 +396,6 @@ in
   };
   i18n.defaultLocale = "en_CA.UTF-8";
   networking = {
-    extraHosts = ''
-      127.0.0.1	${secrets.neptune-endpoint}
-    '';
     hostName = "isaac-nixos";
     networkmanager.enable = true;
   };
