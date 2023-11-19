@@ -4,7 +4,10 @@
     terraria-server
   ];
   networking = {
-    allowedTCPPorts = [ 7777 ];
+    firewall = {
+      allowedTCPPorts = [ 7777 ];
+      enable = true;
+    };
     hostName = "isaac-server";
   };
   services.sshd.enable = true;
