@@ -379,7 +379,6 @@ in
       ];
     };
     light.enable = true;
-    ssh.startAgent = true;
     steam.enable = true;
     xss-lock = {
       enable = true;

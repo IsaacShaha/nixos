@@ -56,6 +56,7 @@ in
     config.allowUnfree = true;
     overlays = [ dockerOverlay ];
   };
+  programs.ssh.startAgent = true;
   system.stateVersion = "23.05";
   time.timeZone = "America/Vancouver";
   users.users.isaac = {
