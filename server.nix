@@ -3,6 +3,9 @@
   environment.systemPackages = with pkgs; [
     terraria-server
   ];
-  networking.hostName = "isaac-server";
+  networking = {
+    allowedTCPPorts = [ 7777 ];
+    hostName = "isaac-server";
+  };
   services.sshd.enable = true;
 }
