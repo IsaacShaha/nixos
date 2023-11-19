@@ -6,6 +6,9 @@ let
   i3-modifier = "Mod4";
 in
 {
+  imports = [
+    <nixos-hardware/system76>
+  ];
   environment.systemPackages = with pkgs; [
     authy
     chromium

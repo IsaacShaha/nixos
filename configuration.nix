@@ -12,7 +12,6 @@ in
   imports = [
     ./hardware-configuration.nix
     <home-manager/nixos>
-    <nixos-hardware/system76>
     device.source
   ];
   boot = {
