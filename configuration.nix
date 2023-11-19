@@ -26,6 +26,10 @@ in
     users.isaac = { pkgs, ... }: {
       home.stateVersion = "23.05";
       programs = {
+        bash = {
+          enable = true;
+          shellAliases.rebuild = "sudo nixos-rebuild switch";
+        };
         gh.enable = true;
         git = {
           enable = true;

@@ -55,7 +55,6 @@ in
       home.file.".git-prompt.sh".source = "${pkgs.git}/share/git/contrib/completion/git-prompt.sh";
       programs = {
         bash = {
-          enable = true;
           # urxvt has a bug that starts text 23ish lines in. Remove clear from initExtra when this is fixed.
           initExtra = ''
             source ~/.git-prompt.sh;
@@ -69,9 +68,9 @@ in
             connect-bluetooth-wifi = "bluetoothctl connect 8C:DE:E6:C6:D8:4A && nmcli device connect 8C:DE:E6:C6:D8:4A";
             connect-headphones = "bluetoothctl connect 22:70:19:FC:C4:4E";
             dual-monitor-left = "xrandr --output HDMI-1 --left-of eDP-1 --auto";
+            # To connect to TVs with mismatched display resolutions (also set game window to floating):
             # xrandr --output HDMI-1 --right-of eDP-1 --auto --scale 0.8x0.8
             dual-monitor-right = "xrandr --output HDMI-1 --right-of eDP-1 --auto";
-            rebuild = "sudo nixos-rebuild switch";
             single-monitor = "xrandr --output HDMI-1 --off";
           };
         };
