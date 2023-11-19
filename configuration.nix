@@ -40,6 +40,7 @@ in
           userEmail = "isaac.shaha64@gmail.com";
           userName = "Isaac Shaha";
         };
+        urxvt.enable = true;
       };
     };
   };

@@ -79,7 +79,6 @@ in
           nix-direnv.enable = true;
         };
         urxvt = {
-          enable = true;
           extraConfig = {
             background = "black";
             foreground = "white";
