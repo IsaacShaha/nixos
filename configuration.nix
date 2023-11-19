@@ -85,6 +85,7 @@ in
             connect-bluetooth-wifi = "bluetoothctl connect 8C:DE:E6:C6:D8:4A && nmcli device connect 8C:DE:E6:C6:D8:4A";
             connect-headphones = "bluetoothctl connect 22:70:19:FC:C4:4E";
             dual-monitor-left = "xrandr --output HDMI-1 --left-of eDP-1 --auto";
+            # xrandr --output HDMI-1 --right-of eDP-1 --auto --scale 0.8x0.8
             dual-monitor-right = "xrandr --output HDMI-1 --right-of eDP-1 --auto";
             rebuild = "sudo nixos-rebuild switch";
             single-monitor = "xrandr --output HDMI-1 --off";
