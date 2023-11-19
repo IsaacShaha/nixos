@@ -66,7 +66,7 @@ in
   time.timeZone = "America/Vancouver";
   users.users.isaac = {
     description = "Isaac Shaha";
-    extraGroups = [ "docker" "networkmanager" ];
+    extraGroups = [ "docker" "networkmanager" "wheel" ];
     isNormalUser = true;
   };
   virtualisation.docker.enable = true;

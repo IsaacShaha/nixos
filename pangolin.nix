@@ -423,5 +423,5 @@ in
       };
     };
   };
-  users.users.isaac.extraGroups = [ "video" "wheel" ];
+  users.users.isaac.extraGroups = [ "video" ];
 }
