@@ -13,6 +13,10 @@ in
     authy
     chromium
     ganttproject-bin
+
+    # for monitoring system load
+    glances
+
     ghc
     gnumake
     lightlocker
