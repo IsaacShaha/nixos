@@ -11,5 +11,11 @@
     };
     hostName = "isaac-server";
   };
+  vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      ms-vscode-remote.remote-ssh
+    ];
+  };
   services.sshd.enable = true;
 }
