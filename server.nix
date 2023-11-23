@@ -3,6 +3,11 @@
   environment.systemPackages = with pkgs; [
     screen
     terraria-server
+    (vscode-with-extensions.override {
+      vscodeExtensions = with vscode-extensions; [
+        ms-vscode-remote.remote-ssh
+      ];
+    })
   ];
   networking = {
     firewall = {
@@ -10,12 +15,6 @@
       enable = true;
     };
     hostName = "isaac-server";
-  };
-  vscode = {
-    enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      ms-vscode-remote.remote-ssh
-    ];
   };
   services.sshd.enable = true;
 }
