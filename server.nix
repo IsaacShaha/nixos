@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     screen
+    nodejs-16 # For Remote SSH in VSCode
     terraria-server
     (vscode-with-extensions.override {
       vscodeExtensions = with vscode-extensions; [

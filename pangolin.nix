@@ -113,31 +113,25 @@ in
             {
               name = "black-formatter";
               publisher = "ms-python";
-              sha256 = "sha256-YBcyyE9Z2eL914J8I97WQW8a8A4Ue6C0pCUjWRRPcr8=";
+              sha256 = "sha256-mkL8OhMWWX3jiLqNOO5qHDdZikn0DT3a3Iix5KmFrDc=";
               version = "latest";
             }
             {
               name = "isort";
               publisher = "ms-python";
-              sha256 = "sha256-Ga2gA7dOKzp8FTpp7dS1D8R5g2ZAJU55VaKoijOqsnY=";
+              sha256 = "sha256-i9vb32kYIcMgcttkCKu10sBCRzYH/pO8w9l88ueIcg4=";
               version = "latest";
             }
             {
               name = "remote-containers";
               publisher = "ms-vscode-remote";
-              sha256 = "sha256-srSRD/wgDbQo9P1uJk8YtcXPZO62keG5kRnp1TmHqOc=";
+              sha256 = "sha256-CR3k4UHCUJahYDCOKhM3VBRqxIZNUeJjOBkRmHrnyDY=";
               version = "latest";
             }
             {
               name = "stylish-haskell";
               publisher = "vigoo";
               sha256 = "sha256-GGRhaHhpeMgfC517C3kDUZwzdHbY8L/YePPVf6xie/4=";
-              version = "latest";
-            }
-            {
-              name = "vscode-thunder-client";
-              publisher = "rangav";
-              sha256 = "sha256-eEg8UqGQ7AfR2ocBUAEKQH5E4pHBgfqkzWIVLNrMaRI=";
               version = "latest";
             }
             {
@@ -427,5 +421,6 @@ in
       };
     };
   };
-  users.users.isaac.extraGroups = [ "video" ];
+  users.users.isaac.extraGroups = [ "vboxusers" "video" ];
+  virtualisation.virtualbox.host.enable = true;
 }
