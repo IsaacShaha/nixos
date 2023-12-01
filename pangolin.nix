@@ -18,7 +18,6 @@ in
     glances
 
     ghc
-    gnumake
     lightlocker
     lxqt.lxqt-policykit
     nixpkgs-fmt

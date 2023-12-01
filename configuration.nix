@@ -8,7 +8,9 @@ let
   unstable = import <nixos-unstable> { };
 in
 {
-  # Stable
+  environment.systemPackages = with pkgs; [
+    gnumake
+  ];
   imports = [
     ./hardware-configuration.nix
     <home-manager/nixos>
