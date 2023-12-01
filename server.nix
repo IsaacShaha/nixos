@@ -6,10 +6,11 @@
   ];
   networking = {
     firewall = {
-      allowedTCPPorts = [ 7777 ];
+      allowedTCPPorts = [ 7777 22 ];
       enable = true;
     };
     hostName = "isaac-server";
   };
   services.sshd.enable = true;
+  services.openssh.passwordAuthentication = false;
 }
