@@ -23,6 +23,7 @@ in
     lxqt.lxqt-policykit
     nixpkgs-fmt
     pavucontrol
+    remmina
     shutter
     spotify
     taskwarrior
@@ -37,9 +38,9 @@ in
     zip
 
     #x11docker
+    catatonit
     x11docker
     xorg.libxcvt
-    catatonit
   ];
   hardware = {
     bluetooth.enable = true;
