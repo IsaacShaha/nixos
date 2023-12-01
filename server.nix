@@ -11,4 +11,5 @@
     };
     hostName = "isaac-server";
   };
+  services.sshd.enable = true;
 }

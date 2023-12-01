@@ -22,7 +22,6 @@ in
     lxqt.lxqt-policykit
     nixpkgs-fmt
     pavucontrol
-    remmina
     shutter
     spotify
     taskwarrior
