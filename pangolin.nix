@@ -30,7 +30,7 @@ in
     unzip
 
     # webcam tweaking
-    v4l_utils
+    v4l-utils
 
     wget
     xorg.xkill
@@ -193,8 +193,8 @@ in
               bottom = true;
               font-0 = "TeX Gyre Adventor:pixelsize=20;3";
               font-1 = "Noto Color Emoji:scale=7;3";
-              font-2 = "Unifont:pixelsize=10;3";
-              font-3 = "Unifont:pixelsize=15;3";
+              font-2 = "DejaVuSans:pixelsize=10;3";
+              font-3 = "DejaVuSans:pixelsize=15;3";
               font-4 = "Tex Gyre Adventor:pixelsize=10;-3";
               height = "35px";
               line-size = 5;
@@ -284,7 +284,7 @@ in
               bar-volume-indicator = "█";
               bar-volume-indicator-font = 4;
               bar-volume-indicator-foreground = "\${colors.white}";
-              bar-volume-width = 50;
+              bar-volume-width = 40;
               # Override the default left-click with a no-op.
               format-volume = "%{A1::}<ramp-volume><bar-volume>     %{A}";
               label-muted = "%{A1::}🔇%{A}";
