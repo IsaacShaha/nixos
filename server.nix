@@ -17,5 +17,17 @@
     };
     hostName = "isaac-server";
   };
-  services.sshd.enable = true;
+  services = {
+    sshd.enable = true;
+    xrdp = {
+      enable = true;
+      defaultWindowManager = "i3";
+      openFirewall = true;
+    };
+    xserver = {
+      displayManager.defaultSession = "none+i3";
+      enable = true;
+      windowManager.i3.enable = true;
+    };
+  };
 }
