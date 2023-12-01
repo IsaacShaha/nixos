@@ -6,7 +6,7 @@
   ];
   networking = {
     firewall = {
-      allowedTCPPorts = [ 7777 8083 ];
+      allowedTCPPorts = [ 7777 ];
       enable = true;
     };
     hostName = "isaac-server";
