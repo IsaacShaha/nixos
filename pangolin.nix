@@ -10,16 +10,34 @@ in
     <nixos-hardware/system76>
   ];
   environment.systemPackages = with pkgs; [
-    authy
-    chromium
+
     ganttproject-bin
 
-    # for monitoring system load
-    glances
-
+    # haskell <3
     ghc
+
+    # monitoring
+    glances
+    # security
+    authy
     lightlocker
     lxqt.lxqt-policykit
+
+    # wallpaper
+    feh
+
+    # web browsing
+    chromium
+
+    # webcam tweaking
+    v4l-utils
+
+    #x11docker
+    catatonit
+    x11docker
+    xorg.libxcvt
+
+    # other
     nixpkgs-fmt
     pavucontrol
     shutter
@@ -27,18 +45,10 @@ in
     taskwarrior
     unityhub
     unzip
-
-    # webcam tweaking
-    v4l-utils
-
     wget
     xorg.xkill
     zip
 
-    #x11docker
-    catatonit
-    x11docker
-    xorg.libxcvt
   ];
   hardware = {
     bluetooth.enable = true;
