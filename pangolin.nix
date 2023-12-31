@@ -9,47 +9,55 @@ in
   imports = [
     <nixos-hardware/system76>
   ];
-  environment.systemPackages = with pkgs; [
+  environment = {
+    systemPackages = with pkgs; [
 
-    ganttproject-bin
+      # haskell <3
+      ghc
 
-    # haskell <3
-    ghc
+      # libera
+      hexchat
 
-    # monitoring
-    glances
-    # security
-    authy
-    lightlocker
-    lxqt.lxqt-policykit
+      # monitoring
+      glances
 
-    # wallpaper
-    feh
+      # security
+      authy
+      lightlocker
+      lxqt.lxqt-policykit
 
-    # web browsing
-    chromium
+      # wallpaper
+      feh
 
-    # webcam tweaking
-    v4l-utils
+      # web browsing
+      chromium
 
-    #x11docker
-    catatonit
-    x11docker
-    xorg.libxcvt
+      # webcam tweaking
+      v4l-utils
 
-    # other
-    nixpkgs-fmt
-    pavucontrol
-    shutter
-    spotify
-    taskwarrior
-    unityhub
-    unzip
-    wget
-    xorg.xkill
-    zip
+      #x11docker
+      catatonit
+      x11docker
+      xorg.libxcvt
 
-  ];
+      # other
+      audacity
+      discord
+      nixpkgs-fmt
+      pavucontrol
+      shutter
+      spotify
+      taskwarrior
+      unityhub
+      unzip
+      wget
+      xorg.xkill
+      zip
+
+    ];
+
+    wordlist.enable = true;
+  };
   hardware = {
     bluetooth.enable = true;
     bluetooth.settings = {
@@ -57,6 +65,7 @@ in
         ControllerMode = "dual";
       };
     };
+    opengl.enable = true;
     pulseaudio.enable = true;
     system76 = {
       enableAll = true;
@@ -350,6 +359,7 @@ in
           startup = [
             { command = "--no-startup-id light-locker"; }
             { command = "--no-startup-id lxqt-policykit-agent"; }
+            { command = "feh --bg-scale ~/.background-image"; }
             {
               always = true;
               command = "systemctl --user restart polybar";
