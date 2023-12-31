@@ -9,55 +9,51 @@ in
   imports = [
     <nixos-hardware/system76>
   ];
-  environment = {
-    systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
 
-      # haskell <3
-      ghc
+    # haskell <3
+    ghc
 
-      # libera
-      hexchat
+    # libera
+    hexchat
 
-      # monitoring
-      glances
+    # monitoring
+    glances
 
-      # security
-      authy
-      lightlocker
-      lxqt.lxqt-policykit
+    # security
+    authy
+    lightlocker
+    lxqt.lxqt-policykit
 
-      # wallpaper
-      feh
+    # wallpaper
+    feh
 
-      # web browsing
-      chromium
+    # web browsing
+    chromium
 
-      # webcam tweaking
-      v4l-utils
+    # webcam tweaking
+    v4l-utils
 
-      #x11docker
-      catatonit
-      x11docker
-      xorg.libxcvt
+    #x11docker
+    catatonit
+    x11docker
+    xorg.libxcvt
 
-      # other
-      audacity
-      discord
-      nixpkgs-fmt
-      pavucontrol
-      shutter
-      spotify
-      taskwarrior
-      unityhub
-      unzip
-      wget
-      xorg.xkill
-      zip
+    # other
+    audacity
+    discord
+    nixpkgs-fmt
+    pavucontrol
+    shutter
+    spotify
+    taskwarrior
+    unityhub
+    unzip
+    wget
+    xorg.xkill
+    zip
 
-    ];
-
-    wordlist.enable = true;
-  };
+  ];
   hardware = {
     bluetooth.enable = true;
     bluetooth.settings = {
