@@ -9,6 +9,7 @@ in
   imports = [
     <nixos-hardware/system76>
   ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
   environment.systemPackages = with pkgs; [
 
     # haskell <3
@@ -160,6 +161,11 @@ in
           mutableExtensionsDir = false;
           userSettings = {
             "[haskell]" = {
+              "editor.defaultFormatter" = "vigoo.stylish-haskell";
+              "editor.insertSpaces" = true;
+              "editor.tabSize" = 2;
+            };
+            "[literate haskell]" = {
               "editor.defaultFormatter" = "vigoo.stylish-haskell";
               "editor.insertSpaces" = true;
               "editor.tabSize" = 2;
@@ -383,6 +389,7 @@ in
     };
   };
   networking.hostName = "isaac-pangolin";
+  # powerManagement.cpuFreqGovernor = "performance";
   programs = {
     chromium = {
       enable = true;
