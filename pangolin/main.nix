@@ -8,6 +8,8 @@ in
 {
   imports = [
     <nixos-hardware/system76>
+    ./SENG426.nix
+    ./SENG440.nix
   ];
   boot.initrd.kernelModules = [ "amdgpu" ];
   environment.systemPackages = with pkgs; [
@@ -18,13 +20,32 @@ in
     # libera
     hexchat
 
+    # lutris
+    lutris
+    wine
+
     # monitoring
     glances
 
+    # mouse configuration
+    piper
+
+    # obs
+    obs-studio
+
+    # screenshots
+    shutter
+
     # security
-    authy
     lightlocker
     lxqt.lxqt-policykit
+
+    # uvic vpn
+    openconnect
+
+    # video editing
+    kdenlive
+    losslesscut-bin
 
     # wallpaper
     feh
@@ -45,7 +66,6 @@ in
     discord
     nixpkgs-fmt
     pavucontrol
-    shutter
     spotify
     taskwarrior
     unityhub
@@ -59,10 +79,17 @@ in
     bluetooth.enable = true;
     bluetooth.settings = {
       General = {
-        ControllerMode = "dual";
+        ControllerMode = "bredr";
       };
     };
-    opengl.enable = true;
+    opengl = {
+      driSupport = true;
+      enable = true;
+      extraPackages = with pkgs; [
+        rocm-opencl-icd
+        rocm-opencl-runtime
+      ];
+    };
     pulseaudio.enable = true;
     system76 = {
       enableAll = true;
@@ -87,9 +114,11 @@ in
             connect-bluetooth-wifi = "bluetoothctl connect 8C:DE:E6:C6:D8:4A && nmcli device connect 8C:DE:E6:C6:D8:4A";
             connect-headphones = "bluetoothctl connect 22:70:19:FC:C4:4E";
             connect-tv-right = "xrandr --output HDMI-1 --right-of eDP-1 --mode 1680x1050";
-            dual-monitor-left = "xrandr --output HDMI-1 --left-of eDP-1 --auto";
-            dual-monitor-right = "xrandr --output HDMI-1 --right-of eDP-1 --auto";
-            single-monitor = "xrandr --output HDMI-1 --off";
+            connect-uvic-vpn = "sudo openconnect -b --useragent=AnyConnect --no-dtls --user=ishaha vpn.uvic.ca/student";
+            dual-monitor-left = "xrandr --output HDMI-A-0 --left-of eDP --auto";
+            dual-monitor-right = "xrandr --output HDMI-A-0 --right-of eDP --auto";
+            mirror-monitor = "xrandr --output HDMI-A-0 --same-as eDP --auto";
+            single-monitor = "xrandr --output HDMI-A-0 --off";
           };
         };
         direnv = {
@@ -130,19 +159,19 @@ in
             {
               name = "black-formatter";
               publisher = "ms-python";
-              sha256 = "sha256-mkL8OhMWWX3jiLqNOO5qHDdZikn0DT3a3Iix5KmFrDc=";
+              sha256 = "sha256-bJ5P+eUm6OE85W86Euk4vCmkTJp3sEyMOazEAsPYEaI=";
               version = "latest";
             }
             {
               name = "isort";
               publisher = "ms-python";
-              sha256 = "sha256-i9vb32kYIcMgcttkCKu10sBCRzYH/pO8w9l88ueIcg4=";
+              sha256 = "sha256-X1o+7KzhHotTzohzUGtGlpJPbfiUrVBwkenRcJUAQrQ=";
               version = "latest";
             }
             {
               name = "remote-containers";
               publisher = "ms-vscode-remote";
-              sha256 = "sha256-CR3k4UHCUJahYDCOKhM3VBRqxIZNUeJjOBkRmHrnyDY=";
+              sha256 = "sha256-RXLgNrMvKSCrCo2CYq9xap6a3LLWkYetObcHY7bvRqw=";
               version = "latest";
             }
             {
@@ -185,6 +214,8 @@ in
               80
             ];
             "explorer.confirmDelete" = false;
+            "extensions.ignoreRecommendations" = true;
+            "search.followSymlinks" = false;
             "update.mode" = "none";
           };
         };
@@ -388,6 +419,15 @@ in
       };
     };
   };
+  # Binary Cache for Haskell.nix
+  nix.settings = {
+    substituters = [
+      "https://cache.iog.io"
+    ];
+    trusted-public-keys = [
+      "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
+    ];
+  };
   networking.hostName = "isaac-pangolin";
   # powerManagement.cpuFreqGovernor = "performance";
   programs = {
@@ -405,37 +445,50 @@ in
       lockerCommand = "light-locker-command -l";
     };
   };
-  security.polkit.enable = true;
+  security = {
+    polkit.enable = true;
+    rtkit.enable = true;
+  };
   services = {
     # printing
     avahi = {
       enable = true;
-      nssmdns = true;
+      nssmdns4 = true;
       openFirewall = true;
     };
 
     blueman.enable = true;
     deluge.enable = true;
+
+    displayManager.defaultSession = "none+i3";
+
     gnome.gnome-keyring.enable = true;
+
+    libinput = {
+      enable = true;
+      touchpad.naturalScrolling = true;
+    };
+
+    # audio streams
+    pipewire = {
+      enable = true;
+    };
+
     printing = {
       drivers = [ pkgs.brlaser ];
       enable = true;
     };
+
+    # mouse configuration
+    ratbagd.enable = true;
+
     udev.extraRules = ''
       SUBSYSTEM == "video4linux", KERNEL=="video0", RUN+="${pkgs.v4l-utils}/bin/v4l2-ctl -d /dev/video0 --set-ctrl=brightness=150"
     '';
     xserver = {
-      displayManager = {
-        defaultSession = "none+i3";
-        sessionCommands = "xrandr --output HDMI-1 --left-of eDP-1 --auto";
-      };
       dpi = 120;
       enable = true;
-      layout = "us";
-      libinput = {
-        enable = true;
-        touchpad.naturalScrolling = true;
-      };
+      videoDrivers = [ "amdgpu" ];
       windowManager.i3 = {
         enable = true;
         extraPackages = with pkgs; [
@@ -443,8 +496,9 @@ in
           i3status
         ];
       };
+      xkb.layout = "us";
     };
   };
-  users.users.isaac.extraGroups = [ "vboxusers" "video" ];
-  virtualisation.virtualbox.host.enable = true;
+  system.autoUpgrade.enable = true;
+  users.users.isaac.extraGroups = [ "video" ];
 }
