@@ -429,7 +429,7 @@ in
     ];
   };
   networking.hostName = "isaac-pangolin";
-  # powerManagement.cpuFreqGovernor = "performance";
+  powerManagement.cpuFreqGovernor = "performance";
   programs = {
     chromium = {
       enable = true;

@@ -2,15 +2,14 @@
 {
   environment.systemPackages = with pkgs; [
     screen
-    terraria-server
   ];
   networking = {
     firewall = {
-      allowedTCPPorts = [ 7777 22 ];
+      allowedTCPPorts = [ 22 ];
       enable = true;
     };
     hostName = "isaac-server";
   };
   services.sshd.enable = true;
-  services.openssh.passwordAuthentication = false;
+  services.openssh.settings.PasswordAuthentication = false;
 }
