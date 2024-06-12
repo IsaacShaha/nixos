@@ -4,7 +4,6 @@
     screen
     steamPackages.steamcmd
     wineWowPackages.stable
-    xvfb-run
   ];
   networking = {
     firewall = {
@@ -13,6 +12,7 @@
     };
     hostName = "isaac-server";
   };
-  services.sshd.enable = true;
   services.openssh.settings.PasswordAuthentication = false;
+  services.sshd.enable = true;
+  services.xserver.enable = true;
 }
