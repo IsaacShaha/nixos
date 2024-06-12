@@ -4,6 +4,7 @@
     screen
     steamPackages.steamcmd
     wineWowPackages.stable
+    xvfb-run
   ];
   networking = {
     firewall = {
