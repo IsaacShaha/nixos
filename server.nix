@@ -3,7 +3,7 @@
   environment.systemPackages = with pkgs; [
     screen
     steamPackages.steamcmd
-    winetricks
+    wineWowPackages.stable
   ];
   networking = {
     firewall = {
