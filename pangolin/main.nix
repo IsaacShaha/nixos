@@ -64,6 +64,8 @@ in
     # other
     audacity
     discord
+    inkscape
+    mangohud
     nixpkgs-fmt
     pavucontrol
     spotify
@@ -429,7 +431,7 @@ in
     ];
   };
   networking.hostName = "isaac-pangolin";
-  powerManagement.cpuFreqGovernor = "performance";
+  # powerManagement.cpuFreqGovernor = "performance";
   programs = {
     chromium = {
       enable = true;
