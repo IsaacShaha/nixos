@@ -3,6 +3,7 @@
   environment.systemPackages = with pkgs; [
     screen
     steamPackages.steamcmd
+    steam-run
   ];
   networking = {
     firewall = {
