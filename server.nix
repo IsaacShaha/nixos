@@ -7,7 +7,8 @@
   ];
   networking = {
     firewall = {
-      allowedTCPPorts = [ 22 34197 ];
+      allowedTCPPorts = [ 22 ];
+      allowedUDPPorts = [ 34197 ];
       enable = true;
     };
     hostName = "isaac-server";
