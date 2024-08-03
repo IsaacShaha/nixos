@@ -433,13 +433,7 @@ in
   networking.hostName = "isaac-pangolin";
   # powerManagement.cpuFreqGovernor = "performance";
   programs = {
-    chromium = {
-      enable = true;
-      extensions = [
-        "chlffgpmiacpedhhbkiomidkjlcfhogd"
-        "cfhdojbkjhnklbpkdaibdccddilifddb"
-      ];
-    };
+    chromium.enable = true;
     light.enable = true;
     steam.enable = true;
     xss-lock = {
