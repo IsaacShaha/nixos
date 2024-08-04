@@ -10,6 +10,7 @@ in
     <nixos-hardware/system76>
     ./SENG426.nix
     ./SENG440.nix
+    ./blender.nix
   ];
   boot.initrd.kernelModules = [ "amdgpu" ];
   environment.systemPackages = with pkgs; [
