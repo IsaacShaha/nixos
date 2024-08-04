@@ -15,7 +15,6 @@ in
     ./hardware-configuration.nix
     <home-manager/nixos>
     device.source
-    ./terraria.nix
   ];
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
