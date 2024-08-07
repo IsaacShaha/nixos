@@ -13,7 +13,9 @@
     };
     hostName = "isaac-server";
   };
-  services.openssh.settings.PasswordAuthentication = false;
-  services.sshd.enable = true;
+  services.openssh = {
+    enable = true;
+    settings.PasswordAuthentication = false;
+  };
   services.xserver.enable = true;
 }
