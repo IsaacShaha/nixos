@@ -7,13 +7,16 @@ let
 in
 {
   imports = [
-    <nixos-hardware/system76>
-    ./SENG426.nix
+    # <nixos-hardware/system76>
     ./SENG440.nix
     ./blender.nix
+    ./gaming.nix
   ];
   boot.initrd.kernelModules = [ "amdgpu" ];
   environment.systemPackages = with pkgs; [
+
+    # audio
+    lmms
 
     # haskell <3
     ghc
@@ -47,6 +50,9 @@ in
     # video editing
     kdenlive
     losslesscut-bin
+
+    # virtual machine
+    quickemu
 
     # wallpaper
     feh
@@ -94,10 +100,10 @@ in
       ];
     };
     pulseaudio.enable = true;
-    system76 = {
-      enableAll = true;
-      kernel-modules.enable = true;
-    };
+    # system76 = {
+    #   enableAll = true;
+    #   kernel-modules.enable = true;
+    # };
   };
   home-manager = {
     users.isaac = { pkgs, ... }: {
@@ -162,19 +168,19 @@ in
             {
               name = "black-formatter";
               publisher = "ms-python";
-              sha256 = "sha256-bJ5P+eUm6OE85W86Euk4vCmkTJp3sEyMOazEAsPYEaI=";
+              sha256 = "sha256-WKRJ2zDjAigOZZ8hcKsXEEivQtBZdz3Q2ZSJoDHROrE=";
               version = "latest";
             }
             {
               name = "isort";
               publisher = "ms-python";
-              sha256 = "sha256-X1o+7KzhHotTzohzUGtGlpJPbfiUrVBwkenRcJUAQrQ=";
+              sha256 = "sha256-UBV9i3LPVv60+toy+kJvESAuJHRmH/uEIwjTidYUXLc=";
               version = "latest";
             }
             {
               name = "remote-containers";
               publisher = "ms-vscode-remote";
-              sha256 = "sha256-RXLgNrMvKSCrCo2CYq9xap6a3LLWkYetObcHY7bvRqw=";
+              sha256 = "sha256-l8m+QNC8+YWU9K8tnCWDc+r8eJPLLrlmCYidSfWYg+c=";
               version = "latest";
             }
             {
@@ -432,11 +438,9 @@ in
     ];
   };
   networking.hostName = "isaac-pangolin";
-  # powerManagement.cpuFreqGovernor = "performance";
   programs = {
     chromium.enable = true;
     light.enable = true;
-    steam.enable = true;
     xss-lock = {
       enable = true;
       lockerCommand = "light-locker-command -l";
