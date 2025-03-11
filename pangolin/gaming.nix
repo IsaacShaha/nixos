@@ -13,11 +13,17 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
+    dolphin-emu
     r2modman
     space-station-14-nixpkgs.space-station-14-launcher
   ];
   programs = {
     gamemode.enable = true;
-    steam.enable = true;
+    gamescope.enable = true;
+    steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+    };
   };
+  services.udev.packages = [ pkgs.dolphinEmu ];
 }

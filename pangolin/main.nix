@@ -18,15 +18,19 @@ in
     # audio
     lmms
 
+    # git
+    git-lfs
+
     # haskell <3
     ghc
 
     # libera
     hexchat
 
-    # lutris
+    # windows applications
     lutris
-    wine
+    wineWowPackages.stable
+    winetricks
 
     # monitoring
     glances
@@ -34,8 +38,14 @@ in
     # mouse configuration
     piper
 
+    # sql
+    mysql-client
+
     # obs
     obs-studio
+
+    # putty
+    putty
 
     # screenshots
     shutter
@@ -135,6 +145,13 @@ in
           nix-direnv.enable = true;
         };
         ssh = {
+          matchBlocks = {
+            "aws-sirocco" = {
+              identityFile = "/home/isaac/.ssh/sirocco-ec2-login.pem";
+              hostname = "ec2-52-10-221-238.us-west-2.compute.amazonaws.com";
+              user = "ec2-user";
+            };
+          };
           enable = true;
         };
         urxvt = {
@@ -180,7 +197,7 @@ in
             {
               name = "remote-containers";
               publisher = "ms-vscode-remote";
-              sha256 = "sha256-l8m+QNC8+YWU9K8tnCWDc+r8eJPLLrlmCYidSfWYg+c=";
+              sha256 = "sha256-dYqas9Tdp8brMMaGU4Sz1Qu3+rM0/aaErhPwlaawoaY=";
               version = "latest";
             }
             {
@@ -487,6 +504,7 @@ in
       SUBSYSTEM == "video4linux", KERNEL=="video0", RUN+="${pkgs.v4l-utils}/bin/v4l2-ctl -d /dev/video0 --set-ctrl=brightness=150"
     '';
     xserver = {
+      displayManager.gdm.wayland = true;
       dpi = 120;
       enable = true;
       videoDrivers = [ "amdgpu" ];
