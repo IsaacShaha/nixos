@@ -14,6 +14,7 @@ in
 {
   environment.systemPackages = with pkgs; [
     dolphin-emu
+    prismlauncher
     r2modman
     space-station-14-nixpkgs.space-station-14-launcher
   ];
@@ -25,5 +26,5 @@ in
       gamescopeSession.enable = true;
     };
   };
-  services.udev.packages = [ pkgs.dolphinEmu ];
+  services.udev.packages = [ pkgs.dolphin-emu ];
 }

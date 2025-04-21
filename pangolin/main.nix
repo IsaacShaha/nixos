@@ -69,6 +69,7 @@ in
 
     # web browsing
     chromium
+    google-chrome
 
     # webcam tweaking
     v4l-utils
@@ -101,15 +102,8 @@ in
         ControllerMode = "bredr";
       };
     };
-    opengl = {
-      driSupport = true;
-      enable = true;
-      extraPackages = with pkgs; [
-        rocm-opencl-icd
-        rocm-opencl-runtime
-      ];
-    };
-    pulseaudio.enable = true;
+    opengl.enable = true;
+    # pulseaudio.enable = true;
     # system76 = {
     #   enableAll = true;
     #   kernel-modules.enable = true;
@@ -185,7 +179,7 @@ in
             {
               name = "black-formatter";
               publisher = "ms-python";
-              sha256 = "sha256-WKRJ2zDjAigOZZ8hcKsXEEivQtBZdz3Q2ZSJoDHROrE=";
+              sha256 = "sha256-EPtxcp42KunVwVdT/xhVzuwvQ+5VswGNnOZpYXZOP04=";
               version = "latest";
             }
             {
@@ -197,7 +191,7 @@ in
             {
               name = "remote-containers";
               publisher = "ms-vscode-remote";
-              sha256 = "sha256-dYqas9Tdp8brMMaGU4Sz1Qu3+rM0/aaErhPwlaawoaY=";
+              sha256 = "sha256-W5mlyn3pjbBYFko19DtytvhIaaOnL4PovlAEog3t6C8=";
               version = "latest";
             }
             {
@@ -210,6 +204,12 @@ in
               name = "octave";
               publisher = "toasty-technologies";
               sha256 = "sha256-tbqblaBX+wqgasfGLsFp49xYxXi5CF39YPYs0QyANt0=";
+              version = "latest";
+            }
+            {
+              name = "vstuc";
+              publisher = "VisualStudioToolsForUnity";
+              sha256 = "sha256-iE/o6hkDwT7jLTVvJbviQZgV+KnhSAGEZ2mf3gsua38=";
               version = "latest";
             }
           ];
@@ -485,11 +485,6 @@ in
     libinput = {
       enable = true;
       touchpad.naturalScrolling = true;
-    };
-
-    # audio streams
-    pipewire = {
-      enable = true;
     };
 
     printing = {
