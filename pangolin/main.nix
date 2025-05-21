@@ -18,6 +18,9 @@ in
     # audio
     lmms
 
+    # installation media creator
+    ventoy
+
     # git
     git-lfs
 
@@ -102,7 +105,7 @@ in
         ControllerMode = "bredr";
       };
     };
-    opengl.enable = true;
+    graphics.enable = true;
     # pulseaudio.enable = true;
     # system76 = {
     #   enableAll = true;
@@ -142,7 +145,7 @@ in
           matchBlocks = {
             "aws-sirocco" = {
               identityFile = "/home/isaac/.ssh/sirocco-ec2-login.pem";
-              hostname = "ec2-52-10-221-238.us-west-2.compute.amazonaws.com";
+              hostname = "ec2-54-201-255-137.us-west-2.compute.amazonaws.com";
               user = "ec2-user";
             };
           };
@@ -397,9 +400,9 @@ in
           bars = [ ];
           defaultWorkspace = "workspace number 1";
           keybindings = lib.mkOptionDefault {
-            "XF86AudioRaiseVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status";
-            "XF86AudioLowerVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status";
-            "XF86AudioMute" = "exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status";
+            "XF86AudioRaiseVolume" = "exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && $refresh_i3status";
+            "XF86AudioLowerVolume" = "exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && $refresh_i3status";
+            "XF86AudioMute" = "exec --no-startup-id wpctl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status";
             "XF86MonBrightnessUp" = "exec --no-startup-id light -A 10";
             "XF86MonBrightnessDown" = "exec --no-startup-id light -U 10";
           };
